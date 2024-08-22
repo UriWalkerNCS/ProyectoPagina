@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="./public/css/event.css">
+    <link rel="stylesheet" href="./public/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="form-container-registro">
+        <h2>Registrarse</h2>
+        <p>
+        <form  id="register-form" action="/registro" method="POST">
+            <p>
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre Completo" required>
+            </p>
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" name="correo" placeholder="Correo Electrónico" required>
+        </p>   
+            <label for="contraseña">Contraseña:</label><p>
+            <input type="password" id="contraseña" name="contrasena" placeholder="Contraseña" required>
+        <p>    
+        </p>
+        <p>
+            <button type="submit" value="registrar" class="btn-registrarse">Registrarse</button>
+        </p>
+        </form>
+    </div>
+
+    <div class="mensaje-exito">
+        <h2>¡Registro Exitoso!</h2>
+        <p>Tu cuenta ha sido creada exitosamente. Puedes iniciar sesión ahora.</p>
+    </div>
+
+
+
+       <script src="public/JS/registro.js"></script>
+    </div> 
+</body>
+</html>
