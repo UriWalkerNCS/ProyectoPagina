@@ -8,5 +8,7 @@ app.use(cors());
 const path = require('path');
 
 //Ruta de prueba
-const userRoutes = require('./api/routes/empleados');
+const userRoutes = require('./api/routes/routesEmpleados');
 app.use('/empleados', userRoutes);
+
+module.exports = app;

@@ -1,5 +1,5 @@
-const mysql = require('mysql');
-
+const mysql = require('mysql2');
+//Se pueden cambiar los parámetros debido a que corresponde a BD
 const mysqlConnection = mysql.createConnection(
     {
        host:'localhost',
@@ -12,7 +12,7 @@ const mysqlConnection = mysql.createConnection(
 mysqlConnection.connect(err =>{
     if(err)
     {
-        console.log('Error en BD: ' , err);
+        console.log('Error en BD: ', err);
         return;
     }
     else
