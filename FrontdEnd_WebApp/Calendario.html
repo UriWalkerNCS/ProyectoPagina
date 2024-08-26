@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario</title>
+    <link rel="stylesheet" href="./public/css/event.css">
+    <link rel="stylesheet" href="./public/css/bootstrap.min.css">
+</head>
+
+<a href="Proyecto.html">
+    <div class="auth-buttons">
+        <button class="btn btn-primary me-md-2" type="button" onclick="window.location.href='index.html'">Regresar</button>
+      </div>  
+</a>
+  </div>
+<center>
+  <h2 class="titulo-cursiva2">Calendario</h2>
+  <div class="Bloq2">
+      <div class="text">
+      <p>
+          <div class="Bloq3">
+              <h3 div class="titulo-cursiva2">Agosto</h3>
+  
+              <table class="calendario2">
+                  <thead>
+                      <tr class="Week2">
+                          <th>Lun</th>
+                          <th>Mar</th>
+                          <th>Mié</th>
+                          <th>Jue</th>
+                          <th>Vie</th>
+                          <th>Sáb</th>
+                          <th>Dom</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr class="day2">
+                          <td> 1</td>
+                          <td> 2</td>
+                          <td> 3</td>
+                          <td> 4</td>
+                          <td> 5</td>
+                          <td> 6</td>
+                          <td> 7</td>
+                      </tr>
+                      <tr>
+                          <td id="day-8"> 8</td>
+                          <td id="day-9"> 9</td>
+                          <td id="day-10"> 10</td>
+                          <td id="day-11"> 11</td>
+                          <td id="day-12"> 12</td>
+                          <td id="day-13"> 13</td> 
+                          <td id="day-14"> 14</td>
+                      </tr>
+                      <tr>
+                          <td> 15</td>
+                          <td> 16</td>
+                          <td> 17</td>
+                          <td> 18</td>
+                          <td> 19</td>
+                          <td> 20</td>
+                          <td> 21</td>
+                      </tr>
+                      <tr>
+                          <td> 22</td>
+                          <td> 23</td>
+                          <td> 24</td>
+                          <td> 25</td>
+                          <td> 26</td>
+                          <td> 27</td>
+                          <td> 28</td>
+                      </tr>
+                      <tr>
+                          <td> 29</td>
+                          <td> 30</td>
+                          <td> 31</td>
+                      </tr>
+                  </tbody>
+              </table>
+            </center>
+          </div>
+          <script>
+            function loadCalendar() {
+                // Recorrer todos los días del mes (ajusta el rango según sea necesario)
+                for (let i = 1; i <= 31; i++) {
+                    const dayCell = document.getElementById('day-' + i);
+                    const status = localStorage.getItem('day-' + i + '-status');
+            
+                    if (status) {
+                        dayCell.classList.add(status);
+                    }
+                }
+            }
+            
+            // Llama a esta función cuando cargues la página del calendario
+            window.onload = loadCalendar;
+            
+          </script>
+
+</body>
+</html>
