@@ -289,3 +289,251 @@
     background-color: #36ffd0; /* Color de fondo al pasar el mouse sobre una celda */
   }
   
+  /*COMENTARIOS */
+
+.comment-section {
+    width: 300px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #deffff;
+    border: 1px solid #054d69;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease; 
+}
+
+.comment-section.minimized {
+    width: 200px; 
+    height: 50px; 
+    overflow: hidden; 
+    padding: 10px; 
+}
+
+.toggle-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 10;
+}
+
+.toggle-button:hover {
+    background-color: #0056b3;
+}
+
+.minimized-label {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.comment-title {
+    margin-bottom: 10px;
+    font-family: 'Dancing Script', cursive; 
+    font-size: 24px;
+    font-weight: 700; 
+}
+
+.comment-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.comment-box textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    height: 50px;
+    font-size: 14px;
+}
+
+.comment-box button {
+    align-self: flex-end;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comment-box button:hover {
+    background-color: #0056b3;
+}
+
+.comment-list {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    max-height: 150px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.comment-item {
+    display: flex;
+    flex-direction: column; 
+    margin-bottom: 10px;
+}
+
+.comment-item img {
+    border-radius: 50%;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.comment-content {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    position: relative;
+}
+
+.comment-content h4 {
+    margin: 0;
+    font-size: 14px;
+    color: #007bff;
+}
+
+.comment-content p {
+    margin: 5px 0 0;
+    font-size: 14px;
+}
+
+.comment-meta {
+    display: flex; 
+    justify-content: space-between; 
+    font-size: 12px;
+    color: #999;
+    margin-top: 5px;
+}
+
+.comment-date {
+    text-align: left;
+}
+
+.reply-button, .delete-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-left: 5px; 
+}
+
+.reply-button:hover, .delete-button:hover {
+    opacity: 0.8;
+}
+
+.delete-button {
+    background-color: #dc3545;
+}
+
+.response-box {
+    margin-top: 10px;
+}
+
+.response-box textarea {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.response-box button {
+    margin-top: 5px;
+    padding: 5px 10px;
+    background-color: #67a811;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.response-box button:hover {
+    background-color: #1eb300;
+}
+
+.response-item {
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+
+
+/* Estilo para el enlace de registrar */
+.register-link {
+    display: inline-block;
+    background-color: #007bff; /* Color de fondo del enlace */
+    color: #fff; /* Color del texto del enlace */
+    padding: 5px 15px; /* Espaciado alrededor del texto */
+    border-radius: 12px; /* Bordes redondeados para parecer una etiqueta */
+    font-size: 14px; /* Tamaño de la fuente */
+    text-align: center;
+    text-decoration: none; /* Elimina el subrayado predeterminado */
+    cursor: pointer; /* Cambia el cursor para indicar que es clickeable */
+    transition: background-color 0.3s, color 0.3s; /* Transiciones suaves para cambios de color */
+}
+
+.register-link:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el mouse */
+    color: #e0e0e0; /* Color del texto al pasar el mouse */
+}
+
+.register-link:active {
+    background-color: #003d80; 
+}
+
+.register-link:focus {
+    outline: none; 
+}
+
+
+
+.register-link {
+    display: inline; 
+    color: #007bff; 
+    font-size: 14px; 
+    text-decoration: none;
+    cursor: pointer; 
+    margin-top: 10px; 
+}
+
+.register-link:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse para indicar interactividad */
+    color: #0056b3; /* Color del texto al pasar el mouse */
+}
+
+.register-link:active {
+    color: #003d80; /* Color del texto cuando se hace clic */
+}
+
+.register-link:focus {
+    outline: none; /* Elimina el borde de enfoque */
+}
+
