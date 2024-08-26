@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InicioSesion</title>
+    <link rel="stylesheet" href="./public/css/event.css">
+    <link rel="stylesheet" href="./public/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="auth-buttons">
+        <button class="btn btn-primary me-md-2" type="button" onclick="window.location.href='index.html'">Regresar</button>
+      </div>  
+
+    <div id="form" class="form-container">
+        <h3>Iniciar Sesión</h3>
+        <p>
+        <form method="POST" action="/procesar-login"> <!--Agregar la URL para que se redireccione a la interfaz correspondiente(admin, user)-->
+          <div class="Email">
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" name="correo" placeholder="Correo Electrónico" required>
+      </div>
+        </p>   
+        <div class="contrasena">
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena" placeholder="Contrasena" required>
+       </div>
+       <div class="recordar">¿Olvido su contraseña?</div>
+
+       <input type="submit" value="Iniciar">
+       <div class="registrarse">
+        <a href="#">Registrarme</a>
+       </div>
+        </form>
+    </div>
+
+    <div id="successMessage" class="hidden">
+        <p>¡Has iniciado sesion correctamente. Bienvenido Administrador</p>
+        <button id="closeSuccess">Iniciar</button>
+    </div>
+
+    <div id="errorMessage" class="hidden">
+        <p>¡Has iniciado sesion correctamente. Bienvenido usuario.</p>
+        <button id="closeError">Iniciar</button>
+    </div>
+
+    <div class="modal-dialog modal-sm">
+        Inicio exitoso</div>
+</body>
+</html>
