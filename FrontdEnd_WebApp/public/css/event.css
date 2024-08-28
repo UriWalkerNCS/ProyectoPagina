@@ -187,34 +187,36 @@ padding: 4px 55px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-   max-width: auto;
-    background-color:rgba(86, 255, 255, 0.46);
+    max-width: auto;
+    background-color: rgba(86, 255, 255, 0.46);
     padding: 10px;
     border: 2px rgba(120, 208, 255, 0.477) solid;
 }
-.container-title{
+
+.container-title {
     background-color: rgb(60, 203, 203);
     text-align: center;
-   flex:1;
+    flex: 1;
 }
 
 .text-content {
     flex: 1;
-    margin-right: 2px; /* Espacio a la derecha del texto */
+    margin-right: 20px;
+    text-align: center;
 }
 
 .video-content {
     flex: 1;
     display: flex;
-    justify-content:left;
-    margin-right: 10px; /* Espacio a la derecha del video */
-    
+    justify-content: flex-start;
+    margin-left: 10px; 
 }
 
 .image-content {
     flex: 1;
     display: flex;
     justify-content: flex-end;
+    margin-right: 30px; 
     height: auto;
     padding: 5px;
 }
@@ -345,11 +347,23 @@ flex:1;
 .Bloq3{
  margin-left: 50px;
     }
-/*Estilo para ofertas*/
+/* Estilo para ofertas */
 .container {
     display: flex; 
-    justify-content: space-between; 
+    justify-content: center; 
+    gap: 50px;  
     margin: 100px;
+}
+
+.container > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container img {
+    display: block;
+    margin: 0 auto; 
 }
 /* Cambia el color del botón */
 .modificatext {
@@ -413,6 +427,23 @@ flex:1;
 .box-img{
     width: 100px;
     height: 100px;
+}
+/*PARA LA PARTE DE CONTACTO QUE NO SE JUNTA */
+p {
+    margin-left: 50px; /* Ajusta la posición de las redes sociales hacia la derecha */
+}
+
+.map-container {
+    display: flex;
+    justify-content: center; /* Centra el mapa horizontalmente */
+    margin-top: 20px;
+}
+
+.map-container iframe {
+    width: 100%;  /* Asegura que el mapa ocupe todo el ancho del contenedor */
+    max-width: 1100px; /* Limita el ancho máximo del mapa */
+    height: 500px;  /* Ajusta la altura del mapa */
+    border: 0;
 }
 /*Collage de galeria*/
 .collage{
