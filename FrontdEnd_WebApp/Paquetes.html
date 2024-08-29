@@ -1,82 +1,97 @@
 <!DOCTYPE html>
-
-<html>
 <head>
     <meta charset="utf-8">
     <title>Paquetes</title>
-    <link rel="stylesheet" href="./public/css/event.css">
-    <link rel="stylesheet" href="./public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/event.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
-<body>
-
-
-<div class="container-title2">
-    <div class="auth-buttons">
+  <body>
+    <div class="container-title2">
+      <div class="auth-buttons">
         <button class="btn btn-primary me-md-2" type="button" onclick="window.location.href='index.html'">Regresar</button>
       </div>
     <h1 div class="titulo-cursiva">Paquetes</h1>
+  </div>
+</div>
     </div>
-    </div>
-    </div>
-       </head> 
-       <div class="text">
-        <p>Visualiza los paquetes que tenemos en nuestro estudio.</p>
+         <div class="text">
+           <p>Visualiza los paquetes que tenemos en nuestro estudio.</p>
         <p>Contamos con paquetes especiales para ti.</p>
-       </div>
-
-        
-<div class="paq">
-    <div class="text-content">
-        <div class="shadow p-2 mb-5 bg-white rounded">
-        <h2 div class="titulo-cursiva1">*Paquete 3</h2>
-    <p>9 Ftos.tamaño infantil </p>
-<p>1 fto tamaño postal 15cm. x 10cm.</p>
-<p>4.fto de recuerdo 6x14 pulgadas </p>
-<p>Cuadro de vidrio</p>
-<p>El precio incluye toga individual</p>
-<p>Si no requiere las fotos infantiles se le canjea con toga para todo el cuerpo</p>
-<p>Precio de: 200$</p>
-      <div class="image-content">
-         <img src="./public/IMAGENS/paq1.png" alt="XV" width="210" height="200">
-            </div>
-       </div>
-</div>
-</div>
-
+      </div>      
     <div class="paq">
-    <div class="text-content">
-        <div class="shadow p-2 mb-5 bg-white rounded">
-        <h2 div class="titulo-cursiva1">*Paquete 2</h2>
+      <div class="card">
+      <div class="imag-paq">
+        <img src="../IMAGENS/paq1.png" alt="XV" >
+  <div class="text-content">
+  <h2>*Paquete 1</h2>
     <p>9 Ftos.tamaño infantil </p>
-<p>1 fto tamaño postal 15cm. x 10cm</p>
-<p>4 fotos tamaño cartera</p>
-<p>Fto de recuerdo 6 x 14 pulgada con textura lavable </p>
-<p>Base gruesa de un canal resistente</p>
-<p>Si no requiere las fotos infantiles se le cangea con toda para todo el grupo</p>
-<p>Precio de: 250$</p>
-      <div class="image-content">
-         <img src="./public/IMAGENS/paq2.png" class="img-fluid"  alt="XV" width="150" height="200">
-            </div>
+      <p>1 fto tamaño postal 15cm. x 10cm.</p>
+        <p>4.fto de recuerdo 6x14 pulgadas </p>
+          <p>Cuadro de vidrio</p>
+            <p>El precio incluye toga individual</p>
+          <p>Si no requiere las fotos infantiles se le canjea con toga para todo el cuerpo</p>
+        <p>Precio de: 200$</p>
+</div>
+  </div>
+   </div>
+     <div class="paq">
+      <div class="card">
+      <div class="imag-paq">
+        <img src="../IMAGENS/paq2.png" class="img-fluid"  alt="XV">
+       <div class="text-content">
+         <h2>*Paquete 2</h2>
+          <p>9 Ftos.tamaño infantil </p>
+         <p>1 fto tamaño postal 15cm. x 10cm</p>
+       <p>4 fotos tamaño cartera</p>
+     <p>Fto de recuerdo 6 x 14 pulgada con textura lavable </p>
+   <p>Base gruesa de un canal resistente</p>
+ <p>Si no requiere las fotos infantiles se le cangea con toda para todo el grupo</p>
+   <p>Precio de: 250$</p>
         </div>
     </div>
 </div>
-
-       <div class="paq">
+    <div class="paq">
+      <div class="card">
+      <div class="imag-paq">
+        <img src="../IMAGENS/paq3.png" alt="XV">
         <div class="text-content">
-            <div class="shadow p-2 mb-5 bg-white rounded">
-            <h2 div class="titulo-cursiva1">*Paquete 3</h2>
+              <h2>*Paquete 3</h2>
             <p>9 Ftos.tamaño infantil </p>
-            <p>1 fto tamaño postal 15cm. x 10cm</p>
-            <p>4 fotos tamaño cartera</p>
-            <p>Fto de recuerdo 6 x 14 pulgada con textura lavable </p>
-            <p>Fto.4r de cuerpo completo con textura</p>
-            <p>Base gruesa de dos canales resistente</p>
-            <p>Precio de: 350$</p>
-          <div class="image-content">
-             <img src="./public/IMAGENS/paq3.png" alt="XV" width="150" height="200">
-                </div>
-            </div>
+         <p>1 fto tamaño postal 15cm. x 10cm</p>
+      <p>4 fotos tamaño cartera</p>
+   <p>Fto de recuerdo 6 x 14 pulgada con textura lavable </p>
+       <p>Fto.4r de cuerpo completo con textura</p>
+          <p>Base gruesa de dos canales resistente</p>
+             <p>Precio de: 350$</p>
+              
+        </div>
     </div>
 </div>
+<style>
+/*Estilos para paquetes*/
+.paq{
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;
+    gap: 20px;
+
+}
+.imag-paq{
+    width: 100%;
+    height: auto;
+}
+.card {
+    width: 300px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(37, 240, 255, 0.784);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+</style>
 </body>
 </html>

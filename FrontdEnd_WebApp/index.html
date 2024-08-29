@@ -10,26 +10,33 @@
 <body>
   <div class="titl">Estudio Fotográfico Morales</div>
   <header>
-    <div class="auth-buttons">
+    <div class="auth-buttons"> 
       <button onclick="showModal('registerModal')">Registrar</button>
       <button onclick="showModal('loginModal')">Iniciar Sesión</button>
     </div>
   </header>
-<!-- Ventana emergente para Registro -->
-<div id="registerModal" class="modal">
+  <div id="registerModal" class="modal">
     <div class="modal-content">
-        <h2>Registro</h2>
-        <form id="registerForm">
-            <label for="name">Nombre:</label>
-            <br>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Correo Electrónico:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Registrar</button>
-        </form>
-    </div>
+      <span class="close" onclick="closeModal('registerModal')">&times;</span>
+      <h2>Registrar</h2>
+      <form>
+        <div>
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" name="nombre">
+        </div>
+        <div>
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo" name="correo">
+        </div>
+        <div>
+          <label for="contrasena">Contraseña</label>
+          <input type="password" id="contrasena" name="contrasena">
+        </div>
+        <div>
+          <button type="submit">Registrar</button>
+        </div>
+      </form>
+    </div>
 </div>
 
   <nav>
@@ -62,25 +69,26 @@
         <div class="modal-content">
           <span class="close" onclick="closeModal('registerModal')">&times;</span>
           <h2>Registrar</h2>
-          <form action="/registro" method="POST">
+          <form>
             <div>
               <label for="nombre">Nombre completo</label>
               <input type="text" id="nombre" name="nombre">
             </div>
-            <div>
+            <div><br>
               <label for="correo">Correo electrónico</label>
               <input type="email" id="correo" name="correo">
             </div>
-            <div>
+            <div><br>
               <label for="contrasena">Contraseña</label>
               <input type="password" id="contrasena" name="contrasena">
             </div>
-            <div>
+            <div><br>
               <button type="submit">Registrar</button>
             </div>
           </form>
         </div>
       </div>
+    
       <div id="loginModal" class="modal">
         <div class="modal-content">
           <span class="close" onclick="closeModal('loginModal')">&times;</span>
@@ -90,15 +98,498 @@
               <label for="login-correo">Correo electrónico</label>
               <input type="email" id="login-correo" name="login-correo">
             </div>
-            <div>
+            <div><br>
               <label for="login-contrasena">Contraseña</label>
               <input type="password" id="login-contrasena" name="login-contrasena">
             </div>
-            <div>
+            <div><br>
               <button type="submit">Iniciar Sesión</button>
             </div>
           </form>
-        </div>             
+        </div>           
       </div>              
     </body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comentarios</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Importar la fuente desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="comment-section" class="comment-section">
+        <div id="minimized-label" class="minimized-label" onclick="toggleMinimize()">Comentarios</div>
+        <button id="toggle-btn" class="toggle-button" onclick="toggleMinimize()">-</button>
+        <h2 class="comment-title">Comentarios</h2>
+        <!-- Lista de comentarios -->
+        <div id="comment-list" class="comment-list">
+            <div class="comment-item">
+                <div class="comment-content">
+                    <h4>Estudio Fotográfico Morales</h4>
+                    <p>Este es un comentario de ejemplo.</p>
+                    <div class="comment-meta">
+                        <span class="comment-date">Fecha: 10/08/2024</span>
+                        <a href="#" onclick="respondToComment(this)" class="reply-link">Responder</a>
+                        <button onclick="deleteComment(this)" class="delete-button">Eliminar</button>
+                    </div>
+                    <!-- Área para respuestas -->
+                    <div class="reply-section">
+                        <!-- Las respuestas se agregarán aquí -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Caja de entrada de comentario -->
+        <div class="comment-box">
+            <textarea id="comment" placeholder="Escribe un mensaje...."></textarea>
+            <button onclick="submitComment()">Listo</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+<style>
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+.comment-section {
+    width: 300px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #deffff;
+    border: 1px solid #054d69;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease; /* Agrega una transición suave para el cambio de tamaño */
+}
+
+.comment-section.minimized {
+    width: 200px; /* Ajusta el ancho cuando está minimizado */
+    height: 50px; /* Ajusta la altura cuando está minimizado */
+    overflow: hidden; /* Oculta el contenido cuando está minimizado */
+    padding: 10px; /* Ajusta el relleno cuando está minimizado */
+}
+
+.toggle-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 10; /* Asegúrate de que el botón esté encima del contenido */
+}
+
+.toggle-button:hover {
+    background-color: #0056b3;
+}
+
+.minimized-label {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.comment-title {
+    margin-bottom: 10px;
+    font-family: 'Dancing Script', cursive; /* Aplica la fuente Dancing Script al título */
+    font-size: 24px; /* Ajusta el tamaño de la fuente según sea necesario */
+    font-weight: 700; /* Usa un peso más fuerte si es necesario */
+}
+
+.comment-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.comment-box textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    height: 50px;
+    font-size: 14px;
+}
+
+.comment-box button {
+    align-self: flex-end;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comment-box button:hover {
+    background-color: #0056b3;
+}
+
+.comment-list {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    max-height: 150px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.comment-item {
+    display: flex;
+    flex-direction: column; /* Asegura que los botones estén uno debajo del otro */
+    margin-bottom: 10px;
+}
+
+.comment-item img {
+    border-radius: 50%;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.comment-content {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    position: relative;
+}
+
+.comment-content h4 {
+    margin: 0;
+    font-size: 14px;
+    color: #007bff;
+}
+
+.comment-content p {
+    margin: 5px 0 0;
+    font-size: 14px;
+}
+
+.comment-meta {
+    display: flex; /* Usa flexbox para alinear los elementos en una fila */
+    justify-content: space-between; /* Espacia los elementos a ambos extremos */
+    font-size: 12px;
+    color: #999;
+    margin-top: 5px;
+}
+
+.comment-date {
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.reply-button, .delete-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-left: 5px; /* Espacio entre los botones */
+}
+
+.reply-button:hover, .delete-button:hover {
+    opacity: 0.8;
+}
+
+.delete-button {
+    background-color: #dc3545;
+}
+
+.response-box {
+    margin-top: 10px;
+}
+
+.response-box textarea {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.response-box button {
+    margin-top: 5px;
+    padding: 5px 10px;
+    background-color: #67a811;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.response-box button:hover {
+    background-color: #1eb300;
+}
+
+.response-item {
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+
+
+/* Estilo para el enlace de registrar */
+.register-link {
+    display: inline-block;
+    background-color: #007bff; /* Color de fondo del enlace */
+    color: #fff; /* Color del texto del enlace */
+    padding: 5px 15px; /* Espaciado alrededor del texto */
+    border-radius: 12px; /* Bordes redondeados para parecer una etiqueta */
+    font-size: 14px; /* Tamaño de la fuente */
+    text-align: center;
+    text-decoration: none; /* Elimina el subrayado predeterminado */
+    cursor: pointer; /* Cambia el cursor para indicar que es clickeable */
+    transition: background-color 0.3s, color 0.3s; /* Transiciones suaves para cambios de color */
+}
+
+.register-link:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el mouse */
+    color: #e0e0e0; /* Color del texto al pasar el mouse */
+}
+
+.register-link:active {
+    background-color: #003d80; /* Color de fondo cuando se hace clic */
+}
+
+.register-link:focus {
+    outline: none; /* Elimina el borde de enfoque */
+}
+
+
+/* Estilo para el enlace de registrar */
+.register-link {
+    display: inline; /* Se comporta como texto en línea */
+    color: #007bff; /* Color del texto */
+    font-size: 14px; /* Tamaño de la fuente */
+    text-decoration: none; /* Elimina el subrayado predeterminado */
+    cursor: pointer; /* Cambia el cursor para indicar que es clickeable */
+    margin-top: 10px; /* Espaciado superior para separarlo del textarea */
+}
+
+.register-link:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse para indicar interactividad */
+    color: #0056b3; /* Color del texto al pasar el mouse */
+}
+
+.register-link:active {
+    color: #003d80; /* Color del texto cuando se hace clic */
+}
+
+.register-link:focus {
+    outline: none; /* Elimina el borde de enfoque */
+}
+
+</style>
+
+<script>
+ function toggleMinimize() {
+  const section = document.getElementById('comment-section');
+  const label = document.getElementById('minimized-label');
+  const isMinimized = section.style.display === 'none';
+  if (isMinimized) {
+      section.style.display = 'block';
+      label.style.display = 'none';
+  } else {
+      section.style.display = 'none';
+      label.style.display = 'block';
+  }
+}
+
+function deleteComment(button) {
+  const commentItem = button.closest('.comment-item');
+  commentItem.remove();
+  alert('Comentario eliminado');
+}
+
+function submitComment() {
+  const commentText = document.getElementById('comment').value;
+  if (commentText.trim()) {
+      const commentList = document.getElementById('comment-list');
+      const newComment = document.createElement('div');
+      newComment.classList.add('comment-item');
+      newComment.innerHTML = `
+          <div class="comment-content">
+              <h4>Usuario 1</h4>
+              <p>${commentText}</p>
+              <div class="comment-meta">
+                  <span>Fecha: ${new Date().toLocaleDateString()}</span>
+                  <button onclick="deleteComment(this)">Eliminar</button>
+              </div>
+          </div>`;
+      commentList.appendChild(newComment);
+      document.getElementById('comment').value = '';
+  }
+}
+function toggleMinimize() {
+    const section = document.getElementById('comment-section');
+    const label = document.getElementById('minimized-label');
+    const toggleButton = document.getElementById('toggle-btn');
+    
+    if (section.classList.contains('minimized')) {
+        section.classList.remove('minimized');
+        label.style.display = 'none';
+        toggleButton.textContent = '-'; // Cambia el texto del botón a menos para maximizar
+    } else {
+        section.classList.add('minimized');
+        label.style.display = 'block';
+        toggleButton.textContent = '+'; // Cambia el texto del botón a más para minimizar
+    }
+}
+
+function deleteComment(button) {
+    const commentItem = button.closest('.comment-item');
+    commentItem.remove();
+    alert('Comentario eliminado');
+}
+
+function submitComment() {
+    const commentText = document.getElementById('comment').value;
+    if (commentText.trim()) {
+        const commentList = document.getElementById('comment-list');
+        const newComment = document.createElement('div');
+        newComment.classList.add('comment-item');
+        newComment.innerHTML = `
+            <div class="comment-content">
+                <h4>Nuevo Usuario</h4>
+                <p>${commentText}</p>
+                <div class="comment-meta">
+                    <span class="comment-date">Fecha: ${new Date().toLocaleDateString()}</span>
+                    <button onclick="deleteComment(this)" class="delete-button">Eliminar</button>
+                </div>
+            </div>`;
+        commentList.appendChild(newComment);
+        document.getElementById('comment').value = '';
+    }
+}
+
+// Función para agregar una respuesta a un comentario
+function respondToComment(button) {
+    const commentItem = button.closest('.comment-item');
+    const responseBox = document.createElement('div');
+    
+    responseBox.classList.add('response-box');
+    responseBox.innerHTML = `
+        <textarea placeholder="Escribe tu respuesta..."></textarea>
+        <button onclick="submitResponse(this)">Enviar</button>
+    `;
+    
+    commentItem.appendChild(responseBox);
+}
+
+// Función para enviar una respuesta
+function submitResponse(button) {
+    const responseBox = button.closest('.response-box');
+    const textarea = responseBox.querySelector('textarea');
+    const responseText = textarea.value.trim();
+    
+    if (responseText) {
+        const responseItem = document.createElement('div');
+        responseItem.classList.add('response-item');
+        responseItem.innerHTML = `
+            <div class="response-content">
+                <p>${responseText}</p>
+                <div class="response-meta">
+                    <span>Fecha: ${new Date().toLocaleDateString()}</span>
+                </div>
+            </div>
+        `;
+        
+        responseBox.parentNode.appendChild(responseItem);
+        responseBox.remove(); // Elimina la caja de respuesta después de enviar
+    } else {
+        alert('Escribe una respuesta antes de enviarla.');
+    }
+}
+
+function respondToComment(button) {
+    const commentItem = button.closest('.comment-item');
+    const responseBox = document.createElement('div');
+    
+    responseBox.classList.add('response-box');
+    responseBox.innerHTML = `
+        <textarea placeholder="Escribe tu respuesta..."></textarea>
+        <button onclick="submitResponse(this)">Enviar</button>
+    `;
+    
+    commentItem.querySelector('.reply-section').appendChild(responseBox);
+}
+
+function submitResponse(button) {
+    const responseBox = button.closest('.response-box');
+    const textarea = responseBox.querySelector('textarea');
+    const responseText = textarea.value.trim();
+    
+    if (responseText) {
+        const responseItem = document.createElement('div');
+        responseItem.classList.add('response-item');
+        responseItem.innerHTML = `
+            <div class="response-content">
+                <p>${responseText}</p>
+                <div class="response-meta">
+                    <span>Fecha: ${new Date().toLocaleDateString()}</span>
+                </div>
+            </div>
+        `;
+        
+        responseBox.parentNode.appendChild(responseItem);
+        responseBox.remove(); // Elimina la caja de respuesta después de enviar
+    } else {
+        alert('Escribe una respuesta antes de enviarla.');
+    }
+}
+
+function submitComment() {
+    const commentText = document.getElementById('comment').value;
+    if (commentText.trim()) {
+        const commentList = document.getElementById('comment-list');
+        const newComment = document.createElement('div');
+        newComment.classList.add('comment-item');
+        newComment.innerHTML = `
+            <div class="comment-content">
+                <h4>Nuevo Usuario</h4>
+                <p>${commentText}</p>
+                <div class="comment-meta">
+                    <span class="comment-date">Fecha: ${new Date().toLocaleDateString()}</span>
+                    <button onclick="respondToComment(this)" class="reply-button">Responder</button>
+                    <button onclick="deleteComment(this)" class="delete-button">Eliminar</button>
+                </div>
+                <div class="reply-section">
+                    <!-- Las respuestas se agregarán aquí -->
+                </div>
+            </div>`;
+        commentList.appendChild(newComment);
+        document.getElementById('comment').value = '';
+    }
+}
+
+
+</script>
+</body>
+<link href="public\css\styles.css">
 </html>
