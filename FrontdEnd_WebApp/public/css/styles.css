@@ -26,7 +26,7 @@ header::before {
 
   footer {
     background-color:#31baacd3; 
-    color: white;
+    color: #b7fffddf;
     padding: 20px;
     text-align: center;
     font-size: 15px;
@@ -228,6 +228,7 @@ header::before {
     border: 1px solid #94ecf3;
     border-radius: 4px;
     background-color: #f5f5f5;
+    text-align:center;
   }
   .event-item img {
     width: 150px;
@@ -310,15 +311,15 @@ header::before {
   }
   
   .calendario2 td {
-    background-color: #fff; /* Fondo blanco para las celdas */
+    background-color: #fff; 
   }
   
   .calendario td input[type="radio"] {
-    display: none; /* Oculta los botones de radio para que solo se vean los números */
+    display: none; 
   }
   
   .calendario td:hover {
-    background-color: #36ffd0; /* Color de fondo al pasar el mouse sobre una celda */
+    background-color: #36ffd0;
   }
   
   /*Para el estilo de los comentarios */
