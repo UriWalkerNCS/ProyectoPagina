@@ -1,4 +1,46 @@
-function toggleMinimize() {
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comentarios</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Importar la fuente desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="comment-section" class="comment-section">
+        <div id="minimized-label" class="minimized-label" onclick="toggleMinimize()">Comentarios</div>
+        <button id="toggle-btn" class="toggle-button" onclick="toggleMinimize()">-</button>
+        <h2 class="comment-title">Comentarios</h2>
+        <!-- Lista de comentarios -->
+        <div id="comment-list" class="comment-list">
+            <div class="comment-item">
+                <div class="comment-content">
+                    <h4>Estudio Fotográfico Morales</h4>
+                    <p>Este es un comentario de ejemplo.</p>
+                    <div class="comment-meta">
+                        <span class="comment-date">Fecha: 10/08/2024</span>
+                        <a href="#" onclick="respondToComment(this)" class="reply-link">Responder</a>
+                        <button onclick="deleteComment(this)" class="delete-button">Eliminar</button>
+                    </div>
+                    <!-- Área para respuestas -->
+                    <div class="reply-section">
+                        <!-- Las respuestas se agregarán aquí -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Caja de entrada de comentario -->
+        <div class="comment-box">
+            <textarea id="comment" placeholder="Escribe un mensaje...."></textarea>
+            <button onclick="submitComment()">Listo</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+<script>
+ function toggleMinimize() {
   const section = document.getElementById('comment-section');
   const label = document.getElementById('minimized-label');
   const isMinimized = section.style.display === 'none';
@@ -92,7 +134,7 @@ function respondToComment(button) {
     commentItem.appendChild(responseBox);
 }
 
-
+// Función para enviar una respuesta
 function submitResponse(button) {
     const responseBox = button.closest('.response-box');
     const textarea = responseBox.querySelector('textarea');
@@ -111,7 +153,7 @@ function submitResponse(button) {
         `;
         
         responseBox.parentNode.appendChild(responseItem);
-        responseBox.remove(); 
+        responseBox.remove(); // Elimina la caja de respuesta después de enviar
     } else {
         alert('Escribe una respuesta antes de enviarla.');
     }
@@ -148,7 +190,7 @@ function submitResponse(button) {
         `;
         
         responseBox.parentNode.appendChild(responseItem);
-        responseBox.remove(); 
+        responseBox.remove(); // Elimina la caja de respuesta después de enviar
     } else {
         alert('Escribe una respuesta antes de enviarla.');
     }
@@ -177,5 +219,7 @@ function submitComment() {
         document.getElementById('comment').value = '';
     }
 }
-
-
+</script>
+</body>
+</html>
+</html>

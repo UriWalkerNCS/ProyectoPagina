@@ -11,18 +11,117 @@
     <div class="auth-buttons">
       <button class="btn btn-primary me-md-2" type="button" onclick="window.location.href='index.html'">Regresar</button>
     </div>  
-
-      <h2 class="titulo-cursiva">Contacto</h2>
+    <h2 class="titulo-cursiva">Contacto</h2>
   </div>
-  <p>Síguenos en nuestras redes sociales:</p>
-      <p>
-        <a href="https://www.facebook.com" target="_blank">Facebook</a><br>
-        <a href="https://www.twitter.com" target="_blank">Twitter</a><br>
-        <a href="https://www.instagram.com" target="_blank">Instagram</a>
-        <p>Numero telefonico: 240974</p>
-      </p>
-        <div class="map-container">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1262.7351920189302!2d-122.084249!3d37.422065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb9c74a3a6c2d%3A0xf5f4f5f4f5f4f5f4!2sGoogleplex!5e0!3m2!1sen!2sus!4v1485401556484" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
+
+  <!-- Contenedor centrado para las redes sociales -->
+  <div class="social-container">
+    <p>Síguenos en nuestras redes sociales:</p>
+    <div class="social-links">
+      <a href="https://www.facebook.com" target="_blank" class="social-link">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg" alt="Facebook" class="social-icon">
+        Facebook
+      </a>
+      <a href="https://www.twitter.com" target="_blank" class="social-link">
+        <img src="https://1000marcas.net/wp-content/uploads/2019/11/Logo-Twitter.jpg" alt="Twitter" class="social-icon">
+        Twitter
+      </a>
+      <a href="https://www.instagram.com" target="_blank" class="social-link">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1000px-Instagram_logo_2022.svg.png" alt="Instagram" class="social-icon">
+        Instagram
+      </a>
+    </div>
+    <p class="phone-number">Número telefónico: 2431038311</p>
+  </div>
+
+  <div class="container">
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.4581021906197!2d-98.46584757836348!3d18.59845400686028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cf001471b32047%3A0x98b2a6a90590acf3!2sB.%20Ju%C3%A1rez%20107%2C%20Centro%2C%2074400%20Iz%C3%BAcar%20de%20Matamoros%2C%20Pue.%2C%20M%C3%A9xico!5e0!3m2!1ses-419!2sus!4v1724573074522!5m2!1ses-419!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="image-container">
+      <br>
+      <br>
+      <br>
+      <img src="/home/sayuri/Escritorio/Página web Integradora/ProyectoPagina/FrontdEnd_WebApp/public/IMAGENS/UbicacionEstudio.jpeg" alt="Ubicación Estudio">
+       <br>
+      <p class="map-link">Ubicación en Google Maps: <a href="https://maps.app.goo.gl/BK8AYeJyoEySdjnu6" target="_blank">Ver en Google Maps</a></p>
+    </div>
+  </div>
+
+  <style>
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 1000px;
+      background-color: #00ac9d;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .map-container {
+      flex: 2;
+      margin: 10px;
+    }
+
+    .image-container {
+      flex: 1;
+      margin: 10px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 450px;
+      border-radius: 8px;
+    }
+
+    .image-container img {
+      max-width: 90%; /* Aumenta el tamaño de la imagen */
+      height: auto;
+      border-radius: 25px;
+    }
+
+    .map-link {
+      text-align: center;
+      margin-top: 10px;
+      color: #000;
+    }
+
+    /* Estilos para centrar el contenido de redes sociales */
+    .social-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .social-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      background-color: #f0f0f0;
+      padding: 10px 15px;
+      margin: 5px 0;
+      border-radius: 5px;
+      font-size: 18px; /* Tamaño de fuente ajustado */
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .social-link:hover {
+      background-color: #e0e0e0;
+    }
+
+    .social-icon {
+      width: 24px; /* Ajusta el tamaño del ícono */
+      height: 24px;
+      margin-right: 8px; /* Espacio entre el ícono y el texto */
+    }
+  </style>
 </body>
 </html>
