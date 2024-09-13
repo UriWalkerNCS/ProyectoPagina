@@ -1,7 +1,7 @@
-
+/*CAMBIAR EL COLOR DE INICIO Y TODO LO DEMAS COLORES*/
   footer {
     background-color:#31baacd3; 
-    color: white;
+    color: #b7fffddf;
     padding: 20px;
     text-align: center;
     font-size: 15px;
@@ -196,6 +196,7 @@
     border: 1px solid #94ecf3;
     border-radius: 4px;
     background-color: #f5f5f5;
+    text-align:center;
   }
   .event-item img {
     width: 150px;
@@ -278,14 +279,209 @@
   }
   
   .calendario2 td {
-    background-color: #fff; /* Fondo blanco para las celdas */
+    background-color: #fff; 
   }
   
   .calendario td input[type="radio"] {
-    display: none; /* Oculta los botones de radio para que solo se vean los números */
+    display: none; 
   }
   
   .calendario td:hover {
-    background-color: #36ffd0; /* Color de fondo al pasar el mouse sobre una celda */
+    background-color: #36ffd0;
   }
-  
+  /* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+.comment-section {
+    width: 300px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #deffff;
+    border: 1px solid #054d69;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease; /* Agrega una transición suave para el cambio de tamaño */
+}
+
+.comment-section.minimized {
+    width: 200px; /* Ajusta el ancho cuando está minimizado */
+    height: 50px; /* Ajusta la altura cuando está minimizado */
+    overflow: hidden; /* Oculta el contenido cuando está minimizado */
+    padding: 10px; /* Ajusta el relleno cuando está minimizado */
+}
+
+.toggle-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 10; /* Asegúrate de que el botón esté encima del contenido */
+}
+
+.toggle-button:hover {
+    background-color: #0056b3;
+}
+
+.minimized-label {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.comment-title {
+    margin-bottom: 10px;
+    font-family: 'Dancing Script', cursive; /* Aplica la fuente Dancing Script al título */
+    font-size: 24px; /* Ajusta el tamaño de la fuente según sea necesario */
+    font-weight: 700; /* Usa un peso más fuerte si es necesario */
+}
+
+.comment-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.comment-box textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    height: 50px;
+    font-size: 14px;
+}
+
+.comment-box button {
+    align-self: flex-end;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comment-box button:hover {
+    background-color: #0056b3;
+}
+
+.comment-list {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    max-height: 150px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.comment-item {
+    display: flex;
+    flex-direction: column; /* Asegura que los botones estén uno debajo del otro */
+    margin-bottom: 10px;
+}
+
+.comment-item img {
+    border-radius: 50%;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.comment-content {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    position: relative;
+}
+
+.comment-content h4 {
+    margin: 0;
+    font-size: 14px;
+    color: #007bff;
+}
+
+.comment-content p {
+    margin: 5px 0 0;
+    font-size: 14px;
+}
+
+.comment-meta {
+    display: flex; /* Usa flexbox para alinear los elementos en una fila */
+    justify-content: space-between; /* Espacia los elementos a ambos extremos */
+    font-size: 12px;
+    color: #999;
+    margin-top: 5px;
+}
+
+.comment-date {
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.reply-button, .delete-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-left: 5px; /* Espacio entre los botones */
+}
+
+.reply-button:hover, .delete-button:hover {
+    opacity: 0.8;
+}
+
+.delete-button {
+    background-color: #dc3545;
+}
+
+.response-box {
+    margin-top: 10px;
+}
+
+.response-box textarea {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.response-box button {
+    margin-top: 5px;
+    padding: 5px 10px;
+    background-color: #67a811;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.response-box button:hover {
+    background-color: #1eb300;
+}
+
+.response-item {
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}

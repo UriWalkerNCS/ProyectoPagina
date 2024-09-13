@@ -11,4 +11,7 @@ const path = require('path');
 const userRoutes = require('./api/routes/routesEmpleados');
 app.use('/empleados', userRoutes);
 
+const userRoutes1 = require('./api/routes/auth');
+app.use('/', userRoutes1);
+
 module.exports = app;

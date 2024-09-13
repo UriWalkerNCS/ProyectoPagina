@@ -15,21 +15,22 @@ function closeModal(modalId) {
   document.getElementById(modalId).style.display = 'none';
 }
 
-function login(event) {
-  event.preventDefault();
+function login() {
   const email = document.getElementById('login-correo').value;
   const password = document.getElementById('login-contrasena').value;
-  
-  // Simulación de autenticación
-  if (email === 'marilynlucero263@gmail.com' && password === 'admin123') {
-    localStorage.setItem('isAdmin', 'true');
-    alert('Inicio de sesión exitoso');
-    closeModal('loginModal');
-    document.getElementById('logoutButton').style.display = 'block';
-    addAdminButtons();
-  } else {
-    alert('Credenciales incorrectas');
-  }
+    fetch('http://localhost:1213/auth', {
+    method: 'POST',
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ "CorreoElectronico":email, "Contrasena":password })
+})
+.then(res => res.json())
+.then(res=> {
+      console.log(res);
+      localStorage.setItem("user",JSON.stringify(res));
+});
+ 
 }
 
 function logout() {
